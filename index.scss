@@ -2,7 +2,7 @@
 
 // Classes de objetos da home
 
-.view {
+main {
   &:before {
     content: '';
     animation: rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
@@ -27,6 +27,34 @@
     width: 70%;
     height: 10vh;
     border-radius: 15px;
+  }
+
+  @media(max-width: 694px) {
+    &:before {
+      content: '';
+      animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
+      background-color: transparent;
+      border: 3px solid rgba($color_white, 1); 
+      position: absolute;
+      bottom: 100vh;
+      right: -30%;
+      width: 70vh;
+      height: 5vh;
+      border-radius: 15px;
+    }
+  
+    &:after {
+      content: '';
+      animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
+      background-color: transparent;
+      border: 3px solid rgba($color_white, 1); 
+      position: absolute;
+      top: 100vh;
+      left: -30%;
+      width: 70vh;
+      height: 5vh;
+      border-radius: 15px;
+    }
   }
 }
 
@@ -54,8 +82,44 @@
     align-self: flex-end;
     margin: 0px 50% 0px 0px;
     transform: translate(65%, -50%);
-    color: $color_green_01;
+    color: $color_green;
     animation: center-to-position 0.5s 1.4s forwards;
+  }
+
+  @media(max-width: 694px) {
+    width: auto;
+    align-items: flex-start;
+    svg:first-child {
+      width: auto;
+      max-height: 5vh;
+      margin: 0px 0px 10vh 5%;
+    }
+    svg:last-child {
+      width: auto;
+      max-height: 5vh;
+      margin: 0px 50% 50% 0px;
+      animation: center-to-position-mobile 0.5s 1.4s forwards;
+    }
+  }
+}
+
+.profile-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 150px;
+  max-height: 150px;
+  transform: translate(-65%, -50%);
+  opacity: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 7px 5px rgba($color_green, 0.3);
+  filter: saturate(0.7);
+  animation: fade-in 1s forwards 3s;
+}
+
+@media(max-width:1919px) {
+  .profile-img {
+    display: none;
   }
 }
 
@@ -103,7 +167,7 @@
   animation: name-animation 0.5s forwards 2.4s;
 }
 #osternack path:nth-child(4) {
-  stroke: $color_white;
+  stroke: $color_black;
   animation: color-fade 0.7s forwards 0.5s cubic-bezier(0.34, 0.19, 0.1, 1);
 }
 #osternack path:nth-child(5) {
@@ -146,14 +210,10 @@
 }
 
 @keyframes color-fade {
-  0% {
-    stroke: $color_white
+  from {
+    stroke: $color_black
   }
-  50% {
-    stroke: $color_green_01;
-    filter: drop-shadow(0 0 5px $color_white);
-  }
-  100% {
+  to {
     stroke: $color_white
   }
 }
@@ -164,6 +224,15 @@
   }
   to {
     transform: rotate(45deg);
+  }
+}
+
+@keyframes rotate-mobile {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(70deg);
   }
 }
 
@@ -180,5 +249,30 @@
   100% {
     margin: 0px 10% 0px 0px;
     transform: translateX(0);
+  }
+}
+
+@keyframes center-to-position-mobile {
+  0% {
+    margin: 0px 50% 50% 0px;
+    transform: translate(65%, -50%);
+  }
+  50% {
+    margin: 0px 5% 50% 0px;
+    transform: translate(0, -50%);
+
+  }
+  100% {
+    margin: 0px 5% 7vh 0px;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

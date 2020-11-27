@@ -8,12 +8,61 @@ body {
 }
 
 * {
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
+}
+
+main {
+  position: fixed;
+  width: calc(100% - 80px);
+  height: 100%;
+  left: 80px;
 }
 
 h1 {
+  color: #F0F0F0;
   font-size: 90px;
   margin: 0px;
+}
+
+h2 {
+  color: #F0F0F0;
+  font-size: 60px;
+  margin: 0px 0px 36px 0px;
+}
+
+@media (max-width: 694px) {
+  h2 {
+    font-size: 40px;
+  }
+}
+
+p {
+  color: #D0D0D0;
+  font-size: 18px;
+  text-align: justify;
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+@media (max-width: 694px) {
+  p {
+    font-size: 13px;
+  }
+}
+
+strong {
+  color: #67c94d;
+  font-weight: bold;
+}
+
+article {
+  padding: 32px;
+}
+
+@media (max-width: 694px) {
+  article {
+    padding: 16px 32px 16px 16px;
+  }
 }
 
 /*
@@ -25,7 +74,7 @@ h1 {
   background: rgba(20, 20, 20, 0.9);
   width: 50px;
   height: calc(100% - 30px);
-  margin: 10px 15px;
+  margin: 15px;
   border: 2px solid #F0F0F0;
   border-radius: 15px;
   -webkit-transition: width 0.3s cubic-bezier(1, 0, 1, 1);
@@ -121,7 +170,7 @@ h1 {
 }
 
 .sidebar_list li h3:after {
-  content: '';
+  content: "";
   background-color: #67c94d;
   width: 0px;
   height: 2px;
@@ -130,13 +179,6 @@ h1 {
   top: calc(100% - 2px);
   -webkit-transition: width 0.2s;
   transition: width 0.2s;
-}
-
-.view {
-  position: fixed;
-  width: calc(100% - 80px);
-  height: 100%;
-  left: 80px;
 }
 
 .sidebar:hover .sidebar_list li h3 {
