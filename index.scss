@@ -4,275 +4,273 @@
 
 main {
   &:before {
-    content: '';
-    animation: rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
-    background-color: transparent;
-    border: 3px solid rgba($color_white, 1); 
-    position: absolute;
-    bottom: 100vh;
-    right: 0px;
-    width: 70%;
-    height: 10vh;
-    border-radius: 15px;
+    content           : "";
+    animation         : rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
+    background-color  : transparent;
+    border            : 3px solid rgba($color_white, 1);
+    position          : absolute;
+    bottom            : 100vh;
+    right             : 0px;
+    width             : 70%;
+    height            : 10vh;
+    border-radius     : 15px;
   }
 
   &:after {
-    content: '';
-    animation: rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
-    background-color: transparent;
-    border: 3px solid rgba($color_white, 1); 
-    position: absolute;
-    top: 100vh;
-    left: 0px;
-    width: 70%;
-    height: 10vh;
-    border-radius: 15px;
+    content           : "";
+    animation         : rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
+    background-color  : transparent;
+    border            : 3px solid rgba($color_white, 1);
+    position          : absolute;
+    top               : 100vh;
+    left              : 0px;
+    width             : 70%;
+    height            : 10vh;
+    border-radius     : 15px;
   }
 
-  @media(max-width: 694px) {
+  @media (max-width   : 694px) {
     &:before {
-      content: '';
-      animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
+      content         : "";
+      animation       : rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
       background-color: transparent;
-      border: 3px solid rgba($color_white, 1); 
-      position: absolute;
-      bottom: 100vh;
-      right: -30%;
-      width: 70vh;
-      height: 5vh;
-      border-radius: 15px;
+      border          : 3px solid rgba($color_white, 1);
+      position        : absolute;
+      bottom          : 100vh;
+      right           : -30%;
+      width           : 70vh;
+      height          : 5vh;
+      border-radius   : 15px;
     }
-  
+
     &:after {
-      content: '';
-      animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
+      content         : "";
+      animation       : rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
       background-color: transparent;
-      border: 3px solid rgba($color_white, 1); 
-      position: absolute;
-      top: 100vh;
-      left: -30%;
-      width: 70vh;
-      height: 5vh;
-      border-radius: 15px;
+      border          : 3px solid rgba($color_white, 1);
+      position        : absolute;
+      top             : 100vh;
+      left            : -30%;
+      width           : 70vh;
+      height          : 5vh;
+      border-radius   : 15px;
     }
   }
 }
 
 .name-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  opacity: 1;
+  display             : flex;
+  justify-content     : center;
+  flex-direction      : column;
+  height              : 100%;
+  width               : 100%;
+  opacity             : 1;
 
   svg:first-child {
     path {
-      stroke: $color_white;
+      stroke          : $color_white;
     }
-    align-self: flex-start;
-    margin: 0px 0px 0px 10%;
-    color: $color_white;
+    align-self        : flex-start;
+    margin            : 0px 0px 0px 10%;
+    color             : $color_white;
   }
 
   svg:last-child {
     path {
-      stroke: $color_white;
+      stroke          : $color_white;
     }
-    align-self: flex-end;
-    margin: 0px 50% 0px 0px;
-    transform: translate(65%, -50%);
-    color: $color_green;
-    animation: center-to-position 0.5s 1.4s forwards;
+    align-self        : flex-end;
+    margin            : 0px 50% 0px 0px;
+    transform         : translate(65%, -50%);
+    color             : $color_green;
+    animation         : center-to-position 0.5s 1.4s forwards;
   }
 
-  @media(max-width: 694px) {
-    width: auto;
-    align-items: flex-start;
+  @media (max-width   : 694px) {
+    width             : auto;
+    align-items       : flex-start;
     svg:first-child {
-      width: auto;
-      max-height: 5vh;
-      margin: 0px 0px 10vh 5%;
+      width           : auto;
+      max-height      : 5vh;
+      margin          : 0px 0px 10vh 5%;
     }
     svg:last-child {
-      width: auto;
-      max-height: 5vh;
-      margin: 0px 50% 50% 0px;
-      animation: center-to-position-mobile 0.5s 1.4s forwards;
+      width           : auto;
+      max-height      : 5vh;
+      margin          : 0px 50% 50% 0px;
+      animation       : center-to-position-mobile 0.5s 1.4s forwards;
     }
   }
 }
 
 .profile-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 150px;
-  max-height: 150px;
-  transform: translate(-65%, -50%);
-  opacity: 0;
-  border-radius: 50%;
-  box-shadow: 0 0 7px 5px rgba($color_green, 0.3);
-  filter: saturate(0.7);
-  animation: fade-in 1s forwards 3s;
+  position            : absolute;
+  top                 : 50%;
+  left                : 50%;
+  max-width           : 150px;
+  max-height          : 150px;
+  transform           : translate(-65%, -50%);
+  opacity             : 0;
+  border-radius       : 50%;
+  box-shadow          : 0 0 7px 5px rgba($color_green, 0.3);
+  filter              : saturate(0.7);
+  animation           : fade-in 1s forwards 3s;
 }
 
-@media(max-width:1919px) {
+@media (max-width     : 1919px) {
   .profile-img {
-    display: none;
+    display           : none;
   }
 }
 
 // Configurações para animações do nome
 
-#daniel>path:nth-child(2) {
-  stroke-dasharray: 214;
-  stroke-dashoffset: 214;
-  animation: name-animation 0.5s forwards 1.8s;
+#daniel > path:nth-of-type(1) {
+  stroke-dasharray    : 214;
+  stroke-dashoffset   : 214;
+  animation           : name-animation 0.5s forwards 1.8s;
 }
-#daniel path:nth-child(3) {
-  stroke-dasharray: 194;
-  stroke-dashoffset: 194;
-  animation: name-animation 0.5s forwards 1.9s;
+#daniel > path:nth-of-type(2) {
+  stroke-dasharray    : 194;
+  stroke-dashoffset   : 194;
+  animation           : name-animation 0.5s forwards 1.9s;
 }
-#daniel path:nth-child(4) {
-  stroke-dasharray: 256;
-  stroke-dashoffset: 256;
-  animation: name-animation 0.5s forwards 2s;
+#daniel > path:nth-of-type(3) {
+  stroke-dasharray    : 256;
+  stroke-dashoffset   : 256;
+  animation           : name-animation 0.5s forwards 2s;
 }
-#daniel path:nth-child(5) {
-  stroke-dasharray: 111;
-  stroke-dashoffset: 111;
-  animation: name-animation 0.5s forwards 2.1s;
+#daniel > path:nth-of-type(4) {
+  stroke-dasharray    : 111;
+  stroke-dashoffset   : 111;
+  animation           : name-animation 0.5s forwards 2.1s;
 }
-#daniel path:nth-child(6) {
-  stroke-dasharray: 237;
-  stroke-dashoffset: 237;
-  animation: name-animation 0.5s forwards 2.2s;
+#daniel > path:nth-of-type(5) {
+  stroke-dasharray    : 237;
+  stroke-dashoffset   : 237;
+  animation           : name-animation 0.5s forwards 2.2s;
 }
-#daniel path:nth-child(7) {
-  stroke-dasharray: 149;
-  stroke-dashoffset: 149;
-  animation: name-animation 0.5s forwards 2.3s;
+#daniel > path:nth-of-type(6) {
+  stroke-dasharray    : 149;
+  stroke-dashoffset   : 149;
+  animation           : name-animation 0.5s forwards 2.3s;
 }
 
-#osternack path:nth-child(2) {
-  stroke-dasharray: 205;
-  stroke-dashoffset: 205; 
-  animation: name-animation 0.5s forwards 2.5s;
+#osternack > path:nth-of-type(1) {
+  stroke-dasharray    : 205;
+  stroke-dashoffset   : 205;
+  animation           : name-animation 0.5s forwards 2.5s;
 }
-#osternack path:nth-child(3) {
-  stroke-dasharray: 273;
-  stroke-dashoffset: 273; 
-  animation: name-animation 0.5s forwards 2.4s;
+#osternack > path:nth-of-type(2) {
+  stroke-dasharray    : 273;
+  stroke-dashoffset   : 273;
+  animation           : name-animation 0.5s forwards 2.4s;
 }
-#osternack path:nth-child(4) {
-  stroke: $color_black;
-  animation: color-fade 0.7s forwards 0.5s cubic-bezier(0.34, 0.19, 0.1, 1);
+#osternack > path:nth-of-type(3) {
+  stroke              : $color_black;
+  animation           : color-fade 0.7s forwards 0.5s cubic-bezier(0.34, 0.19, 0.1, 1);
 }
-#osternack path:nth-child(5) {
-  stroke-dasharray: 238;
-  stroke-dashoffset: 238;
-  animation: name-animation 0.5s forwards 2.3s;
+#osternack > path:nth-of-type(4) {
+  stroke-dasharray    : 238;
+  stroke-dashoffset   : 238;
+  animation           : name-animation 0.5s forwards 2.3s;
 }
-#osternack path:nth-child(6) {
-  stroke-dasharray: 157;
-  stroke-dashoffset: 157; 
-  animation: name-animation 0.5s forwards 2.2s;
+#osternack > path:nth-of-type(5) {
+  stroke-dasharray    : 157;
+  stroke-dashoffset   : 157;
+  animation           : name-animation 0.5s forwards 2.2s;
 }
-#osternack path:nth-child(7) {
-  stroke-dasharray: 256;
-  stroke-dashoffset: 256;
-  animation: name-animation 0.5s forwards 2.1s;
+#osternack > path:nth-of-type(6) {
+  stroke-dasharray    : 256;
+  stroke-dashoffset   : 256;
+  animation           : name-animation 0.5s forwards 2.1s;
 }
-#osternack path:nth-child(8) {
-  stroke-dasharray: 194;
-  stroke-dashoffset: 194;
-  animation: name-animation 0.5s forwards 2s;
+#osternack > path:nth-of-type(7) {
+  stroke-dasharray    : 194;
+  stroke-dashoffset   : 194;
+  animation           : name-animation 0.5s forwards 2s;
 }
-#osternack path:nth-child(9) {
-  stroke-dasharray: 243;
-  stroke-dashoffset: 243; 
-  animation: name-animation 0.5s forwards 1.9s;
+#osternack > path:nth-of-type(8) {
+  stroke-dasharray    : 243;
+  stroke-dashoffset   : 243;
+  animation           : name-animation 0.5s forwards 1.9s;
 }
-#osternack path:nth-child(10) {
-  stroke-dasharray: 297;
-  stroke-dashoffset: 297; 
-  animation: name-animation 0.5s forwards 1.8s;
+#osternack > path:nth-of-type(9) {
+  stroke-dasharray    : 297;
+  stroke-dashoffset   : 297;
+  animation           : name-animation 0.5s forwards 1.8s;
 }
 
 // Animações
 
 @keyframes name-animation {
   to {
-    stroke-dashoffset: 0;
+    stroke-dashoffset : 0;
   }
 }
 
 @keyframes color-fade {
   from {
-    stroke: $color_black
+    stroke            : $color_black;
   }
   to {
-    stroke: $color_white
+    stroke            : $color_white;
   }
 }
 
 @keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform         : rotate(0deg);
   }
   to {
-    transform: rotate(45deg);
+    transform         : rotate(45deg);
   }
 }
 
 @keyframes rotate-mobile {
   from {
-    transform: rotate(0deg);
+    transform         : rotate(0deg);
   }
   to {
-    transform: rotate(70deg);
+    transform         : rotate(70deg);
   }
 }
 
 @keyframes center-to-position {
   0% {
-    margin: 0px 50% 0px 0px;
-    transform: translate(65%, -50%);
+    margin            : 0px 50% 0px 0px;
+    transform         : translate(65%, -50%);
   }
   50% {
-    margin: 0px 10% 0px 0px;
-    transform: translate(0, -50%);
-
+    margin            : 0px 10% 0px 0px;
+    transform         : translate(0, -50%);
   }
   100% {
-    margin: 0px 10% 0px 0px;
-    transform: translateX(0);
+    margin            : 0px 10% 0px 0px;
+    transform         : translateX(0);
   }
 }
 
 @keyframes center-to-position-mobile {
   0% {
-    margin: 0px 50% 50% 0px;
-    transform: translate(65%, -50%);
+    margin            : 0px 50% 50% 0px;
+    transform         : translate(65%, -50%);
   }
   50% {
-    margin: 0px 5% 50% 0px;
-    transform: translate(0, -50%);
-
+    margin            : 0px 5% 50% 0px;
+    transform         : translate(0, -50%);
   }
   100% {
-    margin: 0px 5% 7vh 0px;
-    transform: translate(0, 0);
+    margin            : 0px 5% 7vh 0px;
+    transform         : translate(0, 0);
   }
 }
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity           : 0;
   }
   to {
-    opacity: 1;
+    opacity           : 1;
   }
 }

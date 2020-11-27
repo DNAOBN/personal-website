@@ -1,5 +1,5 @@
 main:before {
-  content: '';
+  content: "";
   -webkit-animation: rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
           animation: rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
   background-color: transparent;
@@ -13,7 +13,7 @@ main:before {
 }
 
 main:after {
-  content: '';
+  content: "";
   -webkit-animation: rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
           animation: rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
   background-color: transparent;
@@ -28,7 +28,7 @@ main:after {
 
 @media (max-width: 694px) {
   main:before {
-    content: '';
+    content: "";
     -webkit-animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
             animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
     background-color: transparent;
@@ -41,7 +41,7 @@ main:after {
     border-radius: 15px;
   }
   main:after {
-    content: '';
+    content: "";
     -webkit-animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
             animation: rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
     background-color: transparent;
@@ -142,104 +142,104 @@ main:after {
   }
 }
 
-#daniel > path:nth-child(2) {
+#daniel > path:nth-of-type(1) {
   stroke-dasharray: 214;
   stroke-dashoffset: 214;
   -webkit-animation: name-animation 0.5s forwards 1.8s;
           animation: name-animation 0.5s forwards 1.8s;
 }
 
-#daniel path:nth-child(3) {
+#daniel > path:nth-of-type(2) {
   stroke-dasharray: 194;
   stroke-dashoffset: 194;
   -webkit-animation: name-animation 0.5s forwards 1.9s;
           animation: name-animation 0.5s forwards 1.9s;
 }
 
-#daniel path:nth-child(4) {
+#daniel > path:nth-of-type(3) {
   stroke-dasharray: 256;
   stroke-dashoffset: 256;
   -webkit-animation: name-animation 0.5s forwards 2s;
           animation: name-animation 0.5s forwards 2s;
 }
 
-#daniel path:nth-child(5) {
+#daniel > path:nth-of-type(4) {
   stroke-dasharray: 111;
   stroke-dashoffset: 111;
   -webkit-animation: name-animation 0.5s forwards 2.1s;
           animation: name-animation 0.5s forwards 2.1s;
 }
 
-#daniel path:nth-child(6) {
+#daniel > path:nth-of-type(5) {
   stroke-dasharray: 237;
   stroke-dashoffset: 237;
   -webkit-animation: name-animation 0.5s forwards 2.2s;
           animation: name-animation 0.5s forwards 2.2s;
 }
 
-#daniel path:nth-child(7) {
+#daniel > path:nth-of-type(6) {
   stroke-dasharray: 149;
   stroke-dashoffset: 149;
   -webkit-animation: name-animation 0.5s forwards 2.3s;
           animation: name-animation 0.5s forwards 2.3s;
 }
 
-#osternack path:nth-child(2) {
+#osternack > path:nth-of-type(1) {
   stroke-dasharray: 205;
   stroke-dashoffset: 205;
   -webkit-animation: name-animation 0.5s forwards 2.5s;
           animation: name-animation 0.5s forwards 2.5s;
 }
 
-#osternack path:nth-child(3) {
+#osternack > path:nth-of-type(2) {
   stroke-dasharray: 273;
   stroke-dashoffset: 273;
   -webkit-animation: name-animation 0.5s forwards 2.4s;
           animation: name-animation 0.5s forwards 2.4s;
 }
 
-#osternack path:nth-child(4) {
+#osternack > path:nth-of-type(3) {
   stroke: #141414;
   -webkit-animation: color-fade 0.7s forwards 0.5s cubic-bezier(0.34, 0.19, 0.1, 1);
           animation: color-fade 0.7s forwards 0.5s cubic-bezier(0.34, 0.19, 0.1, 1);
 }
 
-#osternack path:nth-child(5) {
+#osternack > path:nth-of-type(4) {
   stroke-dasharray: 238;
   stroke-dashoffset: 238;
   -webkit-animation: name-animation 0.5s forwards 2.3s;
           animation: name-animation 0.5s forwards 2.3s;
 }
 
-#osternack path:nth-child(6) {
+#osternack > path:nth-of-type(5) {
   stroke-dasharray: 157;
   stroke-dashoffset: 157;
   -webkit-animation: name-animation 0.5s forwards 2.2s;
           animation: name-animation 0.5s forwards 2.2s;
 }
 
-#osternack path:nth-child(7) {
+#osternack > path:nth-of-type(6) {
   stroke-dasharray: 256;
   stroke-dashoffset: 256;
   -webkit-animation: name-animation 0.5s forwards 2.1s;
           animation: name-animation 0.5s forwards 2.1s;
 }
 
-#osternack path:nth-child(8) {
+#osternack > path:nth-of-type(7) {
   stroke-dasharray: 194;
   stroke-dashoffset: 194;
   -webkit-animation: name-animation 0.5s forwards 2s;
           animation: name-animation 0.5s forwards 2s;
 }
 
-#osternack path:nth-child(9) {
+#osternack > path:nth-of-type(8) {
   stroke-dasharray: 243;
   stroke-dashoffset: 243;
   -webkit-animation: name-animation 0.5s forwards 1.9s;
           animation: name-animation 0.5s forwards 1.9s;
 }
 
-#osternack path:nth-child(10) {
+#osternack > path:nth-of-type(9) {
   stroke-dasharray: 297;
   stroke-dashoffset: 297;
   -webkit-animation: name-animation 0.5s forwards 1.8s;
