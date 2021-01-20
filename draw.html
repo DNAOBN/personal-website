@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#141414" />
   <link href="./assets/images/favicon.png" rel="icon">
   <link rel="stylesheet" href="./styles/stylesheet.css" />
-  <link rel="stylesheet" href="./styles/about.css" />
+  <link rel="stylesheet" href="./styles/draw.css" />
   <link rel="stylesheet" href="./assets/fonts/icons.css" />
   <title>Daniel Osternack</title>
 </head>
@@ -25,13 +25,13 @@
           <h3>Sobre mim</h3>
         </a>
       </li>
-      <li class="selected">
+      <li>
         <a href="./about-website.html">
           <i class="icon-world"></i>
           <h3>Sobre o site</h3>
         </a>
       </li>
-      <li>
+      <li class="selected">
         <a href="./draw.html">
           <i class="icon-paintbrush"></i>
           <h3>Desenhar</h3>
@@ -41,24 +41,7 @@
   </nav>
   <main>
     <article>
-      <h2>Sobre o site</h2>
-      <p>
-        Este website foi desenvolvido em 2020 para a disciplina de <strong>Programação Web (CI1010).</strong>
-        Utilizei HTML puro, SVGs e Scss compilado para css (para facilitar a escrita de classes aninhadas e
-        a adequação para diversos navegadores) para criá-lo.
-      </p>
-      <p>
-        O texto contendo meu nome na página inicial é um SVG criado utilizando o <strong>Figma</strong>
-        e animado manualmente, letra por letra utilizando @keyframes.
-      </p>
-      <p>
-        Os arquivos-fonte deste site podem ser encontrados no link a seguir:
-        <ul class="src-files">
-          <li>
-            <a href="https://github.com/DNAOBN/personal-website">Projeto no Github</a>
-          </li>
-        </ul>
-      </p>
+      <canvas>
     </article>
   </main>
 </body>

@@ -3,57 +3,48 @@
 // Classes de objetos da home
 
 main {
-  &:before {
-    content           : "";
-    animation         : rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
-    background-color  : transparent;
-    border            : 3px solid rgba($color_white, 1);
-    position          : absolute;
-    bottom            : 100vh;
-    right             : 0px;
-    width             : 70%;
-    height            : 10vh;
-    border-radius     : 15px;
-  }
-
+  &:before,
   &:after {
     content           : "";
     animation         : rotate 1s 1s forwards cubic-bezier(1, 0, 0, 1);
     background-color  : transparent;
     border            : 3px solid rgba($color_white, 1);
     position          : absolute;
-    top               : 100vh;
-    left              : 0px;
     width             : 70%;
     height            : 10vh;
     border-radius     : 15px;
   }
 
-  @media (max-width   : 694px) {
-    &:before {
-      content         : "";
-      animation       : rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
-      background-color: transparent;
-      border          : 3px solid rgba($color_white, 1);
-      position        : absolute;
-      bottom          : 100vh;
-      right           : -30%;
-      width           : 70vh;
-      height          : 5vh;
-      border-radius   : 15px;
-    }
+  &:before {
+    bottom            : 100vh;
+    right             : 0px;
+  }
 
+  &:after {
+    top               : 100vh;
+    left              : 0px;
+  }
+
+  @media (max-width   : 694px) {
+    &:before,
     &:after {
       content         : "";
       animation       : rotate-mobile 1s 1s forwards cubic-bezier(1, 0, 0, 1);
       background-color: transparent;
       border          : 3px solid rgba($color_white, 1);
       position        : absolute;
-      top             : 100vh;
-      left            : -30%;
       width           : 70vh;
       height          : 5vh;
       border-radius   : 15px;
+    }
+    &:before {
+      bottom          : 100vh;
+      right           : -30%;
+    }
+
+    &:after {
+      top             : 100vh;
+      left            : -30%;
     }
   }
 }
@@ -100,26 +91,6 @@ main {
       margin          : 0px 50% 50% 0px;
       animation       : center-to-position-mobile 0.5s 1.4s forwards;
     }
-  }
-}
-
-.profile-img {
-  position            : absolute;
-  top                 : 50%;
-  left                : 50%;
-  max-width           : 150px;
-  max-height          : 150px;
-  transform           : translate(-65%, -50%);
-  opacity             : 0;
-  border-radius       : 50%;
-  box-shadow          : 0 0 7px 5px rgba($color_green, 0.3);
-  filter              : saturate(0.7);
-  animation           : fade-in 1s forwards 3s;
-}
-
-@media (max-width     : 1919px) {
-  .profile-img {
-    display           : none;
   }
 }
 
