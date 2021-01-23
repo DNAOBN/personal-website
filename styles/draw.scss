@@ -1,9 +1,67 @@
 @import "./variables.scss";
 
+article {
+  display             : flex;
+  justify-content     : flex-start;
+  gap                 : 32px;
+}
+
+section {
+  display             : flex;
+  flex-flow           : column;
+  justify-content     : flex-start;
+  align-items         : flex-start;
+}
+
 canvas {
-  width               : 1000px;
+  width               : 800px;
   height              : 500px;
   background-color    : $color_black;
   border              : 2px solid $color_white;
   border-radius       : 15px;
+}
+
+label {
+  color               : $color_grey;
+  font-size           : 16px;
+  line-height         : 1.5;
+
+  @media (max-width:694px) {
+    font-size         : 13px;
+  }
+}
+
+input {
+  box-sizing          : border-box;
+  width               : 100%;
+  padding             : 10px;
+  margin              : 0px 0px 10px;
+  color               : $color_white;
+  background-color    : $color_black;
+  border              : 2px solid $color_white;
+  border-radius       : 7px;
+  outline             : none;
+}
+
+button {
+  align-self          : center;
+  padding             : 5px 15px;
+  color               : $color_green;
+  font-weight         : bold;
+  font-size           : 16px;
+  background-color    : $color_black;
+  border              : 2px solid $color_green;
+  border-radius       : 7px;
+  outline             : none;
+  cursor              : pointer;
+  transition          : 0.2s;
+
+  &:hover {
+    color             : $color_black;
+    background-color  : $color_green;
+  }
+}
+
+p {
+  margin              : 0px;
 }

@@ -1,4 +1,4 @@
-const TIP_RADIUS = 5;
+const TIP_RADIUS = 7;
 
 class Position {
   constructor(x = null, y = null) {
@@ -11,7 +11,7 @@ class Path {
   constructor(
     start = new Position,
     end = new Position,
-    color = "#FFFFFF"
+    color = "#F0F0F0"
   ) {
     this.start = start;
     this.end = end;
@@ -24,22 +24,38 @@ const ACTIONS = {
   drawing     : 1,
   movingPath  : 2,
   movingTip   : 3,
-  movingMiddle: 4
 }
 
-let currentAction = ACTIONS.none;
+const ActionNames = new Map([
+  [ACTIONS.none, "Nenhuma"],
+  [ACTIONS.drawing, "Desenhando"],
+  [ACTIONS.movingPath,"Movendo linha"],
+  [ACTIONS.movingTip,"Movendo ponta"],
+])
 
+
+let lastCursorPosition = new Position();
+let currentAction = ACTIONS.none;
 let changingPath = new Path();
 let changingTip = new Position();
-let lastCursorPosition = new Position();
+let paths = [];
 let canvas;
 let ctx;
+let polygonSides = {
+  _val: 0,
+  set: (val) => {
+    this._val = val;
+  },
+  get: () => {
+    return this._val;
+  }
+}
 
-let paths = [];
 
 window.onload = this.main;
 
 function main () {
+  document.getElementById("current-action").innerHTML = 'Nenhuma'
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   ctx.lineWidth = 5;
@@ -61,40 +77,41 @@ const handleClick = (event) => {
         const currentPathTip = getPathTipFromPoint(currentPosition, currentPath)
 
         if (currentPathTip) {
-          console.log('Started moving Tip');
+          // console.log('Started moving Tip');
           changingPath = currentPath
           changingTip = currentPathTip;
           currentAction = ACTIONS.movingTip;
         } else {
-          console.log('Started moving path');
+          // console.log('Started moving path');
           changingPath = currentPath;
           currentAction = ACTIONS.movingPath
         }
         
       } else {
-        console.log('Starting path');
+        // console.log('Starting path');
         paths.push(new Path(currentPosition, currentPosition));
         currentAction = ACTIONS.drawing
       };
       break;
     
     case (ACTIONS.drawing):
-      console.log('Finished Path');
+      // console.log('Finished Path');
       let path = { ...paths.pop(), end: currentPosition };
       paths.push(path);
       currentAction = ACTIONS.none;
       break;
 
     case (ACTIONS.movingPath):
-      console.log('Stopped moving path');
+      // console.log('Stopped moving path');
       currentAction = ACTIONS.none;
       break;
 
     case(ACTIONS.movingTip):
-      console.log('Stopped moving Tip');
+      // console.log('Stopped moving Tip');
       currentAction = ACTIONS.none;
       break;
   }
+  document.getElementById("current-action").innerHTML = ActionNames.get(currentAction)
 }
 
 const handleCursorMove = (event) => {
@@ -112,8 +129,8 @@ const handleCursorMove = (event) => {
             currentPath[currentTip].y,
             TIP_RADIUS, 0, 2 * Math.PI
           );
-          currentPath.color = "#FFFFFF";
-          ctx.fillStyle = "#FFFFFF"
+          currentPath.color = "#F0F0F0";
+          ctx.fillStyle = "#F0F0F0"
           ctx.fill()
         } else {
           document.body.style.cursor = 'move';
@@ -122,7 +139,7 @@ const handleCursorMove = (event) => {
       } else {
         document.body.style.cursor = 'default';
         paths = paths.map((path) => {
-          return { ...path, color: "#FFFFFF"}
+          return { ...path, color: "#F0F0F0"}
         });
       }
       break;
@@ -146,36 +163,25 @@ const handleCursorMove = (event) => {
       changingPath[changingTip].x = currentPosition.x;
       changingPath[changingTip].y = currentPosition.y;
       break;
-
-    // case(ACTIONS.movingMiddle):
       
   }
   lastCursorPosition = currentPosition;
 }
 
 const handleRightClick = (event) => {
-  console.log(event)
   const currentPosition = new Position(event.offsetX, event.offsetY);
   switch (currentAction) {
     case (ACTIONS.none):
       const currentPath = getPathFromPoint(currentPosition);
       if (currentPath) {
-        const { start, end } = currentPath;
         paths = paths.filter((path) => path != currentPath);
-        paths.push(new Path(currentPath.start, currentPosition));
-        // const deltaX = end.x - start.x;
-        // const deltaY = end.y - start.y;
-        // // console.log(deltaX, deltaY)
-        // const hyp = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        // const angle = Math.atan(Math.abs(deltaY) / Math.abs(deltaX));
-        // console.log(angle)
-        // const x = currentPosition.x + Math.round((deltaX < 0 ? -10 : 10) * Math.sin(angle));
-        // const y = currentPosition.y + Math.round((deltaY < 0 ? -10 : 10) * Math.cos(angle));
-        // console.log((deltaX < 0 ? -10 : -10) * Math.sin(angle))
-        // console.log((deltaY < 0 ? -10 : 10) * Math.cos(angle))
-        // currentPath.start = { x, y };
-        paths.push(new Path(currentPosition, currentPath.end));
+        const halfPath = new Path(currentPath.start, currentPosition, "#F8CB4F");
+        paths.push(halfPath);
+        paths.push(new Path(currentPosition, currentPath.end, "#67C94D"));
         reRender(paths);
+        changingPath = halfPath;
+        changingTip = 'end';
+        currentAction = ACTIONS.movingTip;
       }
       break;
   }
@@ -223,4 +229,26 @@ function getPathTipFromPoint(point = new Position(), path) {
     }
   }
   return null;
+}
+
+function createPolygon(n, x, y, r) {
+  const angle = 2*Math.PI / n;
+  const polyStart = { x, y: y - r };
+  let pathEnd = polyStart;
+
+  for (let i = 1; i <= n; i++) {
+    setTimeout(() => {
+      pathStart = pathEnd;
+      pathEnd = {
+        x: x - r * Math.sin(i * angle),
+        y: y - r * Math.cos(i * angle)
+      }
+      if (i == n) {
+        pathEnd = polyStart
+      }
+      const path = new Path(pathStart, pathEnd)
+      paths.push(path);
+      reRender(paths)
+    }, i*50);
+  }
 }

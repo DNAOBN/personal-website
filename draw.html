@@ -42,7 +42,46 @@
   </nav>
   <main>
     <article>
-      <canvas id="canvas" width="1000" height="500">
+      <section>
+        <div class="card">
+          <div class="card-header">
+            Ação atual
+          </div>
+          <div
+            id="current-action"
+            class="card-body">
+
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Gerador de polígonos
+          </div>
+          <div class="card-body">
+            <label>Número de lados do polígono:</label>
+            <input
+              type="number"
+              onchange="polygonSides.set(event.target.value)"
+            >
+            <button onclick="createPolygon(polygonSides.get(), canvas.width / 2, canvas.height / 2, 50)">Gerar polígono</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Como usar
+          </div>
+          <div class="card-body">
+            <p>
+              Para desenhar uma reta, clique em qualquer lugar do canvas para iniciá-la
+              e depois em outro local para finalizá-la. Para mover uma reta, clique sobre
+              ela e depois no local em que deseja colocá-la. Para mover a ponta de uma reta,
+              clique sobre a ponta e depois no local para o qual deseja movê-la. Para dividir
+              uma reta em duas, clique com o botão direito sobre a reta.
+            </p>
+          </div>
+        </div>
+      </section>
+      <canvas id="canvas" width="800" height="500">
     </article>
   </main>
 </body>
