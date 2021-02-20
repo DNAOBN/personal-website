@@ -1,0 +1,94 @@
+@import "./variables.scss";
+
+article {
+  display                : flex;
+  justify-content        : flex-start;
+  gap                    : 32px;
+}
+
+section {
+  display                : flex;
+  flex-flow              : column;
+  justify-content        : flex-start;
+  align-items            : flex-start;
+}
+
+.lottery-grid {
+  display                : grid;
+  grid-template-columns  : repeat(10, auto);
+  gap                    : 10px;
+}
+
+#chosen-numbers {
+  margin: 0px 0px 10px 0px;
+}
+
+input[type=checkbox] {
+  position               : relative;
+  visibility             : hidden;
+  height                 : 30px;
+  width                  : 30px;
+
+  &:after {
+    content              : attr(id);
+    visibility           : visible;
+    position             : absolute;
+    left                 : 50%;
+    top                  : 50%;
+    transform            : translate(-50%, -50%);
+
+    height               : 30px;
+    width                : 30px;
+    display              : flex;
+    justify-content      : center;
+    align-items          : center;
+
+    border               : 2px solid $color_white;
+    border-radius        : 4px;
+    color                : $color_white;
+    font-weight          : 600;
+    font-size            : 14px;
+    cursor               : pointer;
+    transition           : 0.2s;
+  }
+
+  &:hover::after {
+    background           : $color_white;
+    color                : $color_black;
+  }
+
+  &:checked::after {
+    background-color     : rgba($color_green, 0.7);
+  }
+
+  &:hover:checked::after {
+    border               : 2px solid transparent;
+    color                : $color_white;
+  }
+}
+
+button {
+  align-self          : center;
+  padding             : 5px 15px;
+  color               : $color_green;
+  font-weight         : bold;
+  font-size           : 16px;
+  background-color    : transparent;
+  border              : 2px solid $color_green;
+  border-radius       : 7px;
+  outline             : none;
+  cursor              : pointer;
+  transition          : 0.2s;
+
+  &:hover {
+    color             : $color_black;
+    background-color  : $color_green;
+  }
+
+  &:disabled {
+    color             : $color_white;
+    border-color  : transparent;
+    background-color: $color_grey;
+    cursor: not-allowed;
+  }
+}

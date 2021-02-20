@@ -57,28 +57,6 @@ input {
   outline: none;
 }
 
-button {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  padding: 5px 15px;
-  color: #67c94d;
-  font-weight: bold;
-  font-size: 16px;
-  background-color: #141414;
-  border: 2px solid #67c94d;
-  border-radius: 7px;
-  outline: none;
-  cursor: pointer;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-button:hover {
-  color: #141414;
-  background-color: #67c94d;
-}
-
 p {
   margin: 0px;
 }

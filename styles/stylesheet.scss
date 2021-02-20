@@ -188,6 +188,9 @@ article {
 .sidebar:hover .sidebar_list li:nth-child(4) h3 {
   transition          : opacity 0.2s 0.35s, margin 0.2s 0.35s;
 }
+.sidebar:hover .sidebar_list li:nth-child(5) h3 {
+  transition          : opacity 0.2s 0.45s, margin 0.2s 0.45s;
+}
 
 .card {
   display           : flex;
@@ -196,14 +199,15 @@ article {
   flex-direction    : column;
   box-sizing        : border-box;
   width             : 100%;
+  max-height        : 100%;
   margin            : 0px 0px 15px;
   border            : 2px solid $color_white;
   border-radius     : 7px;
 
   .card-header {
     display           : flex;
-    justify-content   : stretch;
-    align-items       : stretch;
+    justify-content   : space-between;
+    align-items       : center;
     padding           : 10px;
     background-color  : $color_white;
     color             : $color_black;
@@ -218,5 +222,6 @@ article {
     background-color  : $color_black;
     color             : $color_white;
     border-radius     : 7px;
+    overflow          : auto;
   }
 }

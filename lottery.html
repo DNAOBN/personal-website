@@ -6,9 +6,10 @@
   <meta name="theme-color" content="#141414" />
   <link href="./assets/images/favicon.png" rel="icon">
   <link rel="stylesheet" href="./styles/stylesheet.css" />
-  <link rel="stylesheet" href="./styles/draw.css" />
+  <link rel="stylesheet" href="./styles/lottery.css" />
   <link rel="stylesheet" href="./assets/fonts/icons.css" />
-  <script src="./scripts/draw.js"></script>
+  <script src="./scripts/jquery.js"></script>
+  <script src="./scripts/lottery.js"></script>
   <title>Daniel Osternack</title>
 </head>
 <body>
@@ -32,14 +33,14 @@
           <h3>Sobre o site</h3>
         </a>
       </li>
-      <li class="selected">
+      <li>
         <a href="./draw.html">
           <i class="icon-paintbrush"></i>
           <h3>Desenhar</h3>
         </a>
       </li>
-      <li>
-        <a href="./lottery.html">
+      <li class="selected">
+        <a href="./draw.html">
           <i class="icon-lottery"></i>
           <h3>Conferidor</h3>
         </a>
@@ -48,46 +49,51 @@
   </nav>
   <main>
     <article>
+      
       <section>
         <div class="card">
           <div class="card-header">
-            Ação atual
+            Selecione seus números
           </div>
-          <div
-            id="current-action"
-            class="card-body">
-
+          <div class="card-body">
+            <div class="lottery-grid">
+            </div>
           </div>
         </div>
         <div class="card">
           <div class="card-header">
-            Gerador de polígonos
+            Jogo
+            <button onclick="loadResults()">
+              Carregar
+            </button>
           </div>
           <div class="card-body">
-            <label>Número de lados do polígono:</label>
-            <input
-              type="number"
-              onchange="polygonSides.set(event.target.value)"
+            <div id="chosen-numbers">
+              Selecionados:
+            </div>
+            <button
+              id="check-button"
+              onclick="checkSequence()"
+              disabled
             >
-            <button onclick="createPolygon(polygonSides.get(), canvas.width / 2, canvas.height / 2, 50)">Gerar polígono</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            Como usar
-          </div>
-          <div class="card-body">
-            <p>
-              Para desenhar uma reta, clique em qualquer lugar do canvas para iniciá-la
-              e depois em outro local para finalizá-la. Para mover uma reta, clique sobre
-              ela e depois no local em que deseja colocá-la. Para mover a ponta de uma reta,
-              clique sobre a ponta e depois no local para o qual deseja movê-la. Para dividir
-              uma reta em duas, clique com o botão direito sobre a reta.
-            </p>
+              Conferir
+            </button>
           </div>
         </div>
       </section>
-      <canvas id="canvas" width="800" height="500">
+
+      <section>
+        <div class="card">
+          <div class="card-header">
+            Resultados
+          </div>
+          <div class="card-body">
+            <ul id="results">
+            </ul>
+          </div>
+        </div>
+      </section>
+
     </article>
   </main>
 </body>
