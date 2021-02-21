@@ -32,15 +32,15 @@ function toggleSelected(number) {
     }
     $('#check-button').prop('disabled', selectedNumbers.length !== 6);
 }
-function checkSequence() {
-    const resultString = lotteryResults.filter(result => result.numbers.reduce((acc, value) => acc + (selectedNumbers.includes(value) ? 1 : 0), 0) > 3).map(result => getResultString(result)).join('');
+function checkSequence(sequence) {
+    const resultString = lotteryResults.filter(result => result.numbers.reduce((acc, value) => acc + (sequence.includes(value) ? 1 : 0), 0) > 3).map(result => getResultString(result)).join('');
     setShownResults(resultString);
 }
 function loadResults() {
     const http = new XMLHttpRequest();
     http.onreadystatechange = () => {
         if (http.readyState === 4 && http.status === 200) {
-            lotteryResults = parseCSV(http.responseText);
+            lotteryResults = parseCSVtoJSON(http.responseText);
             setShownResults(lotteryResults.map(result => getResultString(result)).join(''));
         }
     };
@@ -55,7 +55,7 @@ function getResultString({ city, date, numbers }) {
 function setShownResults(results) {
     document.getElementById("results").innerHTML = results;
 }
-function parseCSV(resultsCSV) {
+function parseCSVtoJSON(resultsCSV) {
     return resultsCSV.split('\n').map(resultString => {
         const [id, city, date, ...numbers] = resultString.replace(/"(.*),(.*)"/, `$1 -$2`).split(',');
         return {
